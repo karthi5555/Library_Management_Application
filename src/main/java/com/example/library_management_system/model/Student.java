@@ -1,6 +1,7 @@
-package com.example.library_management_system;
+package com.example.library_management_system.model;
 
 
+import com.example.library_management_system.Enum.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -14,6 +15,7 @@ import lombok.experimental.FieldDefaults;
 public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int regNo;
 
     String name;
@@ -23,23 +25,10 @@ public class Student {
     @Enumerated(EnumType.STRING)
     Gender gender;
 
+    @Column(unique = true, nullable = false)
     String emailId;
 
-    String Department;
+    @OneToOne(mappedBy = "student")
+    LibraryCard libraryCard;
 
-    public int getAge() {
-        return age;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }

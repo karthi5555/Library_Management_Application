@@ -1,25 +1,27 @@
-package com.example.library_management_system;
+package com.example.library_management_system.controller;
 
 
+import com.example.library_management_system.service.StudentService;
+import com.example.library_management_system.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/student")
 public class StudentController {
 
-    @Autowired StudentService studentService;
+    @Autowired
+    StudentService studentService;
 
     //API to add student
+    //also do add the libraryCard automatically
     @PostMapping("/addStudent")
     public String addStudent(@RequestBody Student student){
-        Student response = studentService.addStudent(student);
-        return "The student has been added successfully";
+        return  studentService.addStudent(student);
     }
 
     //API to get the student by regNo
