@@ -20,6 +20,7 @@ public class StudentService {
     StudentRepository studentRepository;
     public String addStudent(Student student) {
         //logic to create the libraryCard
+        //create library card automatically when the student added
         LibraryCard libraryCard = new LibraryCard();
         libraryCard.setCardNo(String.valueOf(UUID.randomUUID()));
         libraryCard.setCardStatus(CardStatus.ACTIVE);

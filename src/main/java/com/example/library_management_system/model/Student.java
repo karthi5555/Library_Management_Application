@@ -28,7 +28,7 @@ public class Student {
     @Column(unique = true, nullable = false)
     String emailId;
 
-    @OneToOne(mappedBy = "student")
+    @OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
     LibraryCard libraryCard;
 
 }

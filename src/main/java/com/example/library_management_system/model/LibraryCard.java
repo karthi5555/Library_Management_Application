@@ -21,10 +21,10 @@ public class LibraryCard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    String CardNo;
+    String cardNo;
 
     @Enumerated(EnumType.STRING)
-    CardStatus CardStatus;
+    CardStatus cardStatus;
 
     @CreationTimestamp
     Date issueDate;
